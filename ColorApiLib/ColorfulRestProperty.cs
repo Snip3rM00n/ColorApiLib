@@ -30,21 +30,42 @@ using System;
 
 namespace ColorApiLib
 {
+	/// <summary>
+	/// An object that represents a color from TheColorAPI.
+	/// </summary>
 	public class ColorfulRestProperty
 	{
 		#region Color Identity Constructors
 
+		/// <summary>
+		/// The Hex Data for the Color Object
+		/// </summary>
 		public struct hexvalue
 		{
-			string Value;
-			string CleanValue;
+			/// <summary>
+			/// Hexidecimal (HTML) value for the color. (Includes #)
+			/// </summary>
+			public string Value;
+			/// <summary>
+			/// Clean Hexidecimal (HTML) value for the color.
+			/// </summary>
+			public string CleanValue;
 
+			/// <summary>
+			/// Creates the Hex data from user provided values.
+			/// </summary>
+			/// <param name="value">The hexidecimal value for a color (Example: #01A1B1)</param>
+			/// <param name="cvalue">The clean hexidecimal value for a color (Example: 01A1B1)</param>
 			public hexvalue(string value, string cvalue)
 			{
 				Value = value;
 				CleanValue = cvalue;
 			}
 
+			/// <summary>
+			/// Creates the Hex data from ColorfulJsonParser hex data.
+			/// </summary>
+			/// <param name="jsonData">ColorfulJsonParser.hexData object</param>
 			public hexvalue(object jsonData)
 			{
 				var hexData = (hexData)jsonData;
@@ -53,22 +74,43 @@ namespace ColorApiLib
 			}
 		}
 
+		/// <summary>
+		/// The RGB (Red, Green Blue) Color Space Data for the Color Object
+		/// </summary>
 		public struct rgb
 		{
+			/// <summary>
+			/// The collection of RGB values in ushort. (Base: ColorfulGeneric.RGB(ushort))
+			/// </summary>
 			public ColorfulGeneric.RGB<ushort> Values;
+			/// <summary>
+			/// The collection of RGB fractions in decimal. (Base: ColorfulGeneric.RGB(decimal))
+			/// </summary>
 			public ColorfulGeneric.RGB<decimal> Fraction;
 
+			/// <summary>
+			/// Gets a string representing the RGB values.
+			/// </summary>
+			/// <returns>Returns a string representing the RGB values.</returns>
 			public override string ToString()
 			{
 				return string.Format("rgb({0},{1},{2})", Values.Red, Values.Green, Values.Blue);
 			}
 
+			/// <summary>
+			/// Gets the API URL to query TheColorApi for this color using RGB method.
+			/// </summary>
+			/// <returns>The API Url.</returns>
 			public string ToApiUrl()
 			{
 				string apiUrl = string.Format(ApiUrl, "rgb={0}");
 				return string.Format(apiUrl, ToString());
 			}
 
+			/// <summary>
+			/// Creates RGB Data from ColorfulJsonParser RGB data
+			/// </summary>
+			/// <param name="jsonData">ColorfulJsonParser.rgbData object</param>
 			public rgb(object jsonData)
 			{
 				var _rgbData = (rgbData)jsonData;
@@ -84,6 +126,11 @@ namespace ColorApiLib
 				Fraction.Blue = _rgbData.Fraction.b;
 			}
 
+			/// <summary>
+			/// Creates RBG Data from user provided arrays of ushorts and decimals.
+			/// </summary>
+			/// <param name="values">An array of ushorts representing RGB values ([0]:Red, [1]:Green, [2]:Blue)</param>
+			/// <param name="fraction">An array of decimals representing RGB fractions ([0]:Red, [1]:Green, [2]:Blue)</param>
 			public rgb(ushort[] values, decimal[] fraction)
 			{
 				Values = new ColorfulGeneric.RGB<ushort>();
@@ -99,22 +146,43 @@ namespace ColorApiLib
 			}
 		}
 
+		/// <summary>
+		/// The HSL (Hue, Saturation, Lightness) Color Space Data for the Color Object
+		/// </summary>
 		public struct hsl
 		{
+			/// <summary>
+			/// The collection of HSL values in ushort. (Base: ColorfulGeneric.HSL(ushort))
+			/// </summary>
 			public ColorfulGeneric.HSL<ushort> Values;
+			/// <summary>
+			/// The collection of HSL fractions in decimal. (Base: ColorfulGeneric.HSL(decimal))
+			/// </summary>
 			public ColorfulGeneric.HSL<decimal> Fraction;
 
+			/// <summary>
+			/// Gets a string representing the HSL values.
+			/// </summary>
+			/// <returns>Returns a string representing the HSL values.</returns>
 			public override string ToString()
 			{
 				return string.Format("hsl({0},{1}%,{2}%)", Values.H, Values.S, Values.L);
 			}
 
+			/// <summary>
+			/// Gets the API URL to query TheColorApi for this color using HSL method.
+			/// </summary>
+			/// <returns>The API Url.</returns>
 			public string ToApiUrl()
 			{
 				string apiUrl = string.Format(ApiUrl, "hsl={0}");
 				return string.Format(apiUrl, ToString());
 			}
 
+			/// <summary>
+			/// Creates HSL Data from ColorfulJsonParser HSL data
+			/// </summary>
+			/// <param name="jsonData">ColorfulJsonParser.hslData object</param>
 			public hsl(object jsonData)
 			{
 				var _hslData = (hslData)jsonData;
@@ -130,6 +198,11 @@ namespace ColorApiLib
 				Fraction.L = _hslData.fraction.l;
 			}
 
+			/// <summary>
+			/// Creates HSL Data from user provided arrays of ushorts and decimals.
+			/// </summary>
+			/// <param name="values">An array of ushorts representing HSL values ([0]:Hue, [1]:Saturation, [2]:Lightness)</param>
+			/// <param name="fraction">An array of decimals representing HSL fractions ([0]:Hue, [1]:Saturation, [2]:Lightness)</param>
 			public hsl(ushort[] values, decimal[] fraction)
 			{
 				Values = new ColorfulGeneric.HSL<ushort>();
@@ -145,22 +218,44 @@ namespace ColorApiLib
 			}
 		}
 
+		/// <summary>
+		/// The HSV (Hue, Saturation, Value) Color Space Data for the Color Object
+		/// </summary>
 		public struct hsv
 		{
+			/// <summary>
+			/// The collection of HSV values in ushort. (Base: ColorfulGeneric.HSV(ushort))
+			/// </summary>
 			public ColorfulGeneric.HSV<ushort> Values;
+			/// <summary>
+			/// The collection of HSV fractions in decimal. (Base: ColorfulGeneric.HSV(decimal))
+			/// </summary>
 			public ColorfulGeneric.HSV<decimal> Fraction;
 
+			/// <summary>
+			/// Gets a string representing the HSV values.
+			/// </summary>
+			/// <returns>Returns a string representing the HSV values.</returns>
 			public override string ToString()
 			{
 				return string.Format("hsv({0},{1}%,{2}%)", Values.H, Values.S, Values.V);
 			}
 
+			/// <summary>
+			/// Gets the API URL to query TheColorApi for this color using HSV method.  This method is not currently supported by the API.
+			/// </summary>
+			/// <returns>The API Url.</returns>
+			[Obsolete("TheColorAPI currently does not support retrieving color via HSV.  Consider an alterative method.", true)]
 			public string ToApiUrl()
 			{
 				string apiUrl = string.Format(ApiUrl, "hsv={0}");
 				return string.Format(apiUrl, ToString());
 			}
 
+			/// <summary>
+			/// Creates HSV Data from ColorfulJsonParser HSV data
+			/// </summary>
+			/// <param name="jsonData">ColorfulJsonParser.hsvData object</param>
 			public hsv(object jsonData)
 			{
 				var _hsvData = (hsvData)jsonData;
@@ -176,6 +271,11 @@ namespace ColorApiLib
 				Fraction.V = _hsvData.fraction.v;
 			}
 
+			/// <summary>
+			/// Creates HSV Data from user provided arrays of ushorts and decimals.
+			/// </summary>
+			/// <param name="values">An array of ushorts representing HSV values ([0]:Hue, [1]:Saturation, [2]:Value)</param>
+			/// <param name="fraction">An array of decimals representing HSV fractions ([0]:Hue, [1]:Saturation, [2]:Value)</param>
 			public hsv(ushort[] values, decimal[] fraction)
 			{
 				Values = new ColorfulGeneric.HSV<ushort>();
@@ -191,22 +291,43 @@ namespace ColorApiLib
 
 		}
 
+		/// <summary>
+		/// The CMYK (Cyan, Magenta, Yellow, Key (Black)) Color Space Data for the Color Object
+		/// </summary>
 		public struct cmyk
 		{
+			/// <summary>
+			/// The collection of CMYK values in ushort. (Base: ColorfulGeneric.CMYK(ushort))
+			/// </summary>
 			public ColorfulGeneric.CMYK<ushort> Values;
+			/// <summary>
+			/// The collection of CMYK fractions in decimal. (Base: ColorfulGeneric.CMYK(decimal))
+			/// </summary>
 			public ColorfulGeneric.CMYK<decimal> Fraction;
 
+			/// <summary>
+			/// Gets a string representing the CMYK values.
+			/// </summary>
+			/// <returns>Returns a string representing the CMYK values.</returns>
 			public override string ToString()
 			{
 				return string.Format("cmyk({0},{1},{2},{3})", Values.C, Values.M, Values.Y, Values.K);
 			}
 
+			/// <summary>
+			/// Gets the API URL to query TheColorApi for this color using CMYK method.
+			/// </summary>
+			/// <returns>The API Url.</returns>
 			public string ToApiUrl()
 			{
 				string apiUrl = string.Format(ApiUrl, "cmyk={0}");
 				return string.Format(apiUrl, ToString());
 			}
 
+			/// <summary>
+			/// Creates CMYK Data from ColorfulJsonParser CMYK data
+			/// </summary>
+			/// <param name="jsonData">ColorfulJsonParser.cmykData object</param>
 			public cmyk(object jsonData)
 			{
 				var _cmykData = (cmykData)jsonData;
@@ -224,6 +345,11 @@ namespace ColorApiLib
 				Fraction.K = _cmykData.fraction.k;
 			}
 
+			/// <summary>
+			/// Creates CMYK Data from user provided arrays of ushorts and decimals.
+			/// </summary>
+			/// <param name="values">An array of ushorts representing CMYK values ([0]:Cyan, [1]:Magenta, [2]:Yellow [3]:Key)</param>
+			/// <param name="fraction">An array of decimals representing CMYK fractions ([0]:Cyan, [1]:Magenta, [2]:Yellow [3]:Key)</param>
 			public cmyk(ushort[] values, decimal[] fraction)
 			{
 				Values = new ColorfulGeneric.CMYK<ushort>();
@@ -240,16 +366,33 @@ namespace ColorApiLib
 			}
 		}
 
+		/// <summary>
+		/// The XYZ (CIE 1931) Color Space Data for the Color Object
+		/// </summary>
 		public struct xyz
 		{
+			/// <summary>
+			/// The collection of XYZ values in ushort. (Base: ColorfulGeneric.XYZ(ushort))
+			/// </summary>
 			public ColorfulGeneric.XYZ<ushort> Values;
+			/// <summary>
+			/// The collection of XYZ fractions in decimal. (Base: ColorfulGeneric.XYZ(decimal))
+			/// </summary>
 			public ColorfulGeneric.XYZ<decimal> Fraction;
 
+			/// <summary>
+			/// Gets a string representing the XYZ values.
+			/// </summary>
+			/// <returns>Returns a string representing the XYZ values.</returns>
 			public override string ToString()
 			{
 				return string.Format("XYZ({0},{1},{2})", Values.X, Values.Y, Values.Z);
 			}
 
+			/// <summary>
+			/// Gets the API URL to query TheColorApi for this color using XYZ method.  This method is not currently supported by the API.
+			/// </summary>
+			/// <returns>The API Url.</returns>
 			[Obsolete("The Color API currently does not support retrieving color with XYZ via direct URL, use a Json payload to query API instead.", true)]
 			public string ToApiUrl()
 			{
@@ -257,6 +400,10 @@ namespace ColorApiLib
 				return string.Format(apiUrl, ToString());
 			}
 
+			/// <summary>
+			/// Creates XYZ Data from ColorfulJsonParser XYZ data
+			/// </summary>
+			/// <param name="jsonData">ColorfulJsonParser.xyzData object</param>
 			public xyz(object jsonData)
 			{
 				var _xyzData = (xyzData)jsonData;
@@ -272,7 +419,12 @@ namespace ColorApiLib
 				Fraction.Z = _xyzData.fraction.z;
 			}
 
-			public xyz(ushort[] values, decimal[] decimals)
+			/// <summary>
+			/// Creates XYZ Data from user provided arrays of ushorts and decimals.
+			/// </summary>
+			/// <param name="values">An array of ushorts representing XYZ values ([0]:X, [1]:Y, [2]:Z)</param>
+			/// <param name="fraction">An array of decimals representing XYZ fractions ([0]:X, [1]:Y, [2]:Z)</param>
+			public xyz(ushort[] values, decimal[] fraction)
 			{
 				Values = new ColorfulGeneric.XYZ<ushort>();
 				Values.X = values[0];
@@ -280,19 +432,38 @@ namespace ColorApiLib
 				Values.Z = values[2];
 
 				Fraction = new ColorfulGeneric.XYZ<decimal>();
-				Fraction.X = decimals[0];
-				Fraction.Y = decimals[1];
-				Fraction.Z = decimals[2];
+				Fraction.X = fraction[0];
+				Fraction.Y = fraction[1];
+				Fraction.Z = fraction[2];
 			}
 		}
 
+		/// <summary>
+		/// The Name data for the Color Object
+		/// </summary>
 		public struct name
 		{
+			/// <summary>
+			/// A string representing the name of the color.
+			/// </summary>
 			public string Value;
+			/// <summary>
+			/// A string representing the closest color in hexidecimal.
+			/// </summary>
 			public string ClosestNamedHex;
+			/// <summary>
+			/// A boolean representing if this color exactly matches the closet named color.
+			/// </summary>
 			public bool ExactMatchName;
-			public int Distance;
+			/// <summary>
+			/// The distance to the Closest named color.
+			/// </summary>
+            public int Distance;
 
+			/// <summary>
+			/// Creates Name Data from ColorfulJsonParser Name data
+			/// </summary>
+			/// <param name="jsonData">ColorfulJsonParser.nameData object</param>
 			public name(object jsonData)
 			{
 				var _nameData = (nameData)jsonData;
@@ -303,6 +474,13 @@ namespace ColorApiLib
 				Distance = _nameData.distance;
 			}
 
+			/// <summary>
+			/// reates Name Data from user provided parameters.
+			/// </summary>
+			/// <param name="value">The name of the color</param>
+			/// <param name="closestHex">The closest color in Hexidecimal</param>
+			/// <param name="exactMatch">Does this color match its closest match</param>
+			/// <param name="dist">Distance to the nearest color</param>
 			public name(string value, string closestHex, bool exactMatch, int dist)
 			{
 				Value = value;
@@ -312,11 +490,24 @@ namespace ColorApiLib
 			}
 		}
 
+		/// <summary>
+		/// The Image Data for the Color Object
+		/// </summary>
 		public struct image
 		{
+			/// <summary>
+			/// The URL to the image without text.
+			/// </summary>
 			public string Bare;
+			/// <summary>
+			/// The URL to the image with text.
+			/// </summary>
 			public string Named;
 
+			/// <summary>
+			/// Creates Image Data from ColorfulJsonParser Image data
+			/// </summary>
+			/// <param Image="jsonData">ColorfulJsonParser.ImageData object</param>
 			public image(object jsonData)
 			{
 				var _imageData = (imageData)jsonData;
@@ -324,6 +515,11 @@ namespace ColorApiLib
 				Named = _imageData.Named;
 			}
 
+			/// <summary>
+			/// Creates Image Data from user provided strings.
+			/// </summary>
+			/// <param name="bare">The URL to the image without text.</param>
+			/// <param name="named">The URL to the image with text.</param>
 			public image(string bare, string named)
 			{
 				Bare = bare;
@@ -337,25 +533,59 @@ namespace ColorApiLib
 
 		private const string ApiUrl = "http://www.thecolorapi.com/id?{0}";
 
+		/// <summary>
+		/// The Hex Data for the current Color Object
+		/// </summary>
 		public hexvalue HexValue;
+		/// <summary>
+		/// The RGB (Red, Green Blue) Color Space Data for the current Color Object
+		/// </summary>
 		public rgb RGB;
+		/// <summary>
+		/// The HSL (Hue, Saturation, Lightness) Color Space Data for the current Color Object
+		/// </summary>
 		public hsl HSL;
+		/// <summary>
+		/// The HSV (Hue, Saturation, Value) Color Space Data for the current Color Object
+		/// </summary>
 		public hsv HSV;
+		/// <summary>
+		/// The CMYK (Cyan, Magenta, Yellow, Key (Black)) Color Space Data for the current Color Object
+		/// </summary>
 		public cmyk CMYK;
+		/// <summary>
+		/// The XYZ (CIE 1931) Color Space Data for the current Color Object
+		/// </summary>
 		public xyz XYZ;
+		/// <summary>
+		/// The Name data for the current Color Object
+		/// </summary>
 		public name Name;
+		/// <summary>
+		/// The Image Data for the current Color Object
+		/// </summary>
 		public image Image;
+		/// <summary>
+		/// The Contrast Data for the current Color Object
+		/// </summary>
 		public string Contrast;
 
 		#endregion
 
 		#region Instantiate ColorfulRestProperty
 
+		/// <summary>
+		/// Initializes an empty ColorfulRestProperty object.
+		/// </summary>
 		public ColorfulRestProperty()
 		{
 			initEmpty();
 		}
 
+		/// <summary>
+		/// Initializes a ColorfulRestProperty object from ColorfulJsonParse object.
+		/// </summary>
+		/// <param name="json">(ColorfulJsonParser)object from API call.</param>
 		public ColorfulRestProperty(object json)
 		{
 			var colorData = (ColorfulJsonParser)json;
@@ -386,11 +616,22 @@ namespace ColorApiLib
 
 		#endregion
 
+		/// <summary>
+		/// Gets the name of the current color object
+		/// </summary>
+		/// <returns>Returns the name of the color.</returns>
 		public override string ToString()
 		{
 			return Name.Value;
 		}
 
+		/// <summary>
+		/// Gets data relating to hte color object.
+		/// </summary>
+		/// <param name="allData">Bool representing if all data is needed.</param>
+		/// <returns>allData = True - Gets the RGB, HSL, HSV, XYZ and CMYK colorspace data for the object in string form
+		///			 allData = False - Gets the name of the color
+		/// </returns>
 		public string ToString(bool allData)
 		{
 			if (allData)

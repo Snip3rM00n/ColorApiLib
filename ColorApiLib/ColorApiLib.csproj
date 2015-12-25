@@ -113,6 +113,7 @@
     <Compile Include="ColorfulGeneric.cs" />
     <Compile Include="ColorfulJsonParcer.cs" />
     <Compile Include="ColorfulRestProperty.cs" />
+    <Compile Include="ColorfulSchemeJsonParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="Properties\ColorApi.rd.xml" />
   </ItemGroup>

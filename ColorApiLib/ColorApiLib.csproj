@@ -111,7 +111,7 @@
   <ItemGroup>
     <Compile Include="ApiHelpers.cs" />
     <Compile Include="ColorfulGeneric.cs" />
-    <Compile Include="ColorfulJsonParcer.cs" />
+    <Compile Include="ColorfulJsonParser.cs" />
     <Compile Include="ColorfulRestProperty.cs" />
     <Compile Include="ColorfulSchemeJsonParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

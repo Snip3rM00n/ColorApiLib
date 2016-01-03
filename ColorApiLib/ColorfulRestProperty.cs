@@ -458,7 +458,7 @@ namespace ColorApiLib
 			/// <summary>
 			/// The distance to the Closest named color.
 			/// </summary>
-            public int Distance;
+			public int Distance;
 
 			/// <summary>
 			/// Creates Name Data from ColorfulJsonParser Name data
@@ -583,7 +583,7 @@ namespace ColorApiLib
 		}
 
 		/// <summary>
-		/// Initializes a ColorfulRestProperty object from ColorfulJsonParse object.
+		/// Initializes a ColorfulRestProperty object from ColorfulJsonParser object.
 		/// </summary>
 		/// <param name="json">(ColorfulJsonParser)object from API call.</param>
 		public ColorfulRestProperty(object json)
@@ -616,6 +616,7 @@ namespace ColorApiLib
 
 		#endregion
 
+		#region ToString Overloads
 		/// <summary>
 		/// Gets the name of the current color object
 		/// </summary>
@@ -660,5 +661,6 @@ namespace ColorApiLib
 			}
 			else return ToString();
 		}
+		#endregion
 	}
 }

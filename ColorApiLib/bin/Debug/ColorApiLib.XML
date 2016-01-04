@@ -1,0 +1,1217 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ColorApiLib</name>
+    </assembly>
+    <members>
+        <member name="T:ColorApiLib.ApiHelpers">
+            <summary>
+            A collection of static API helpers for retreiving colors from various data points.
+            </summary>
+        </member>
+        <member name="M:ColorApiLib.ApiHelpers.getColorApiJson(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Gets the jSon Object for TheColorAPI data using ColorfulJsonParser.
+            </summary>
+            <param name="r">Value for Red</param>
+            <param name="g">Value for Blue</param>
+            <param name="b">Value for Green</param>
+            <returns>(ColorfulJsonParser)object with data relating to RGB values provided</returns>
+        </member>
+        <member name="M:ColorApiLib.ApiHelpers.getColorfulRestProperty(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Gets the ColorfulRestProperty for a color.
+            </summary>
+            <param name="r">Value for Red</param>
+            <param name="g">Value for Blue</param>
+            <param name="b">Value for Green</param>
+            <returns>ColorfulRestProperty with the data relating to provided RGB values</returns>
+        </member>
+        <member name="M:ColorApiLib.ApiHelpers.getColorApiJson(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Gets the jSon Object for TheColorAPI data using ColorfulJsonParser.
+            </summary>
+            <param name="c">Value for Cyan</param>
+            <param name="m">Value for Magenta</param>
+            <param name="y">Value for Yellow</param>
+            <param name="k">Value for Key (black)</param>
+            <returns>(ColorfulJsonParser)object with data relating to CMYK values provided</returns>
+        </member>
+        <member name="M:ColorApiLib.ApiHelpers.getColorfulRestProperty(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Gets the ColorfulRestProperty for a color.
+            </summary>
+            <param name="c">Value for Cyan</param>
+            <param name="m">Value for Magenta</param>
+            <param name="y">Value for Yellow</param>
+            <param name="k">Value for Key (black)</param>
+            <returns>ColorfulRestProperty with the data relating to provided CMYK values</returns>
+        </member>
+        <member name="M:ColorApiLib.ApiHelpers.getColorApiJson(System.Int32,System.Int32,System.Int32,System.Nullable{System.Char})">
+            <summary>
+            Gets the jSon Object for TheColorAPI data using ColorfulJsonParser.
+            </summary>
+            <param name="h">Value for Hue</param>
+            <param name="s">Value for Saturation</param>
+            <param name="l">Value for Lightness</param>
+            <param name="c">Character for the S and L values.  Pass null for default '%'.</param>
+            <returns>(ColorfulJsonParser)object with data relating to HSL values provided</returns>
+        </member>
+        <member name="M:ColorApiLib.ApiHelpers.getColorfulRestProperty(System.Int32,System.Int32,System.Int32,System.Nullable{System.Char})">
+            <summary>
+            Gets the jSon Object for TheColorAPI data using ColorfulJsonParser.
+            </summary>
+            <param name="h">Value for Hue</param>
+            <param name="s">Value for Saturation</param>
+            <param name="l">Value for Lightness</param>
+            <param name="c">Character for the S and L values.  Pass null for default '%'.</param>
+            <returns>(ColorfulJsonParser)object with data relating to HSL values provided.</returns>
+        </member>
+        <member name="M:ColorApiLib.ApiHelpers.getColorApiJson(System.String)">
+            <summary>
+            Gets the jSon Object for TheColorAPI data using ColorfulJsonParser.
+            </summary>
+            <param name="hexVal">String representing the hexidecimal value (HTML Code)</param>
+            <returns>(ColorfulJsonParser)object with data relating to the hexidecimal value provided.</returns>
+        </member>
+        <member name="M:ColorApiLib.ApiHelpers.getColorfulRestProperty(System.String)">
+            <summary>
+            Gets the ColorfulRestProperty for a color.
+            </summary>
+            <param name="hexVal">String representing the hexidecimal value (HTML Code)</param>
+            <returns>ColorfulRestProperty with the data relating to the hexidecimal value provided.</returns>
+        </member>
+        <member name="M:ColorApiLib.ApiHelpers.hitApiWithUrl(System.String)">
+            <summary>
+            Hits the URL to get the ColorfulJsonParser object.
+            </summary>
+            <param name="url">The URL to hit.</param>
+            <returns>(ColorfulJsonParser)object.</returns>
+        </member>
+        <member name="T:ColorApiLib.ColorfulGeneric">
+            <summary>
+            A collection of generic structures to build ColorfulRestProperties
+            </summary>
+        </member>
+        <member name="T:ColorApiLib.ColorfulGeneric.RGB`1">
+            <summary>
+            A collection of generics for RGB Color Space
+            </summary>
+            <typeparam name="T">Typically use int, ushort, decimal, or float.</typeparam>
+        </member>
+        <member name="F:ColorApiLib.ColorfulGeneric.RGB`1.Red">
+            <summary>
+            Generic for Red
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulGeneric.RGB`1.Green">
+            <summary>
+            Generic for Green
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulGeneric.RGB`1.Blue">
+            <summary>
+            Generic for Blue
+            </summary>
+        </member>
+        <member name="T:ColorApiLib.ColorfulGeneric.HSL`1">
+            <summary>
+            A collection of generics for HSL Color Space
+            </summary>
+            <typeparam name="T">Typically use int, ushort, decimal, or float.</typeparam>
+        </member>
+        <member name="F:ColorApiLib.ColorfulGeneric.HSL`1.H">
+            <summary>
+            Generic for Hue
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulGeneric.HSL`1.S">
+            <summary>
+            Generic for Saturation
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulGeneric.HSL`1.L">
+            <summary>
+            Generic for Lightness
+            </summary>
+        </member>
+        <member name="T:ColorApiLib.ColorfulGeneric.HSV`1">
+            <summary>
+            A collection of generics for HSV Color Space
+            </summary>
+            <typeparam name="T">Typically use int, ushort, decimal, or float.</typeparam>
+        </member>
+        <member name="F:ColorApiLib.ColorfulGeneric.HSV`1.H">
+            <summary>
+            Generic for Hue
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulGeneric.HSV`1.S">
+            <summary>
+            Generic for Saturation
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulGeneric.HSV`1.V">
+            <summary>
+            Generic for Value
+            </summary>
+        </member>
+        <member name="T:ColorApiLib.ColorfulGeneric.CMYK`1">
+            <summary>
+            A collection of generics for CMYK Color Space
+            </summary>
+            <typeparam name="T">Typically use int, ushort, decimal, or float.</typeparam>
+        </member>
+        <member name="F:ColorApiLib.ColorfulGeneric.CMYK`1.C">
+            <summary>
+            Generic for Cyan
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulGeneric.CMYK`1.M">
+            <summary>
+            Generic for Magenta
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulGeneric.CMYK`1.Y">
+            <summary>
+            Generic for Yellow
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulGeneric.CMYK`1.K">
+            <summary>
+            Generic for Key (Black)
+            </summary>
+        </member>
+        <member name="T:ColorApiLib.ColorfulGeneric.XYZ`1">
+            <summary>
+            Generic for CIE 1931 Color Space (XYZ).
+            </summary>
+            <typeparam name="T">Typically use int, ushort, decimal, or float.</typeparam>
+        </member>
+        <member name="F:ColorApiLib.ColorfulGeneric.XYZ`1.X">
+            <summary>
+            Generic for X
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulGeneric.XYZ`1.Y">
+            <summary>
+            Generic for Y
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulGeneric.XYZ`1.Z">
+            <summary>
+            Generic for Z
+            </summary>
+        </member>
+        <member name="T:ColorApiLib.ColorfulJsonParser">
+            <summary>
+            A DataContract class for parsing TheColorAPI Json Payloads
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.ColorfulJsonParser.Hex">
+            <summary>
+            JSon data for Hex Value.
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.ColorfulJsonParser.RGB">
+            <summary>
+            JSon Data for RGB Values and Fractions
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.ColorfulJsonParser.HSL">
+            <summary>
+            JSon Data for HSL Values and Fractions
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.ColorfulJsonParser.HSV">
+            <summary>
+            JSon Data for HSV Values and Fractions
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.ColorfulJsonParser.Name">
+            <summary>
+            JSon Data for Name Values
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.ColorfulJsonParser.CMYK">
+            <summary>
+            JSon Data for CMYK Values and Fractions
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.ColorfulJsonParser.XYZ">
+            <summary>
+            JSon Data for XYZ Values and Fractions
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.ColorfulJsonParser.Image">
+            <summary>
+            JSon Data for Image URLs
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.ColorfulJsonParser.Contrast">
+            <summary>
+            JSon Data for Hex Values
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.ColorfulJsonParser.Links">
+            <summary>
+            JSon Data for Color Links
+            </summary>
+        </member>
+        <member name="T:ColorApiLib.rgbData">
+            <summary>
+            JSon Data for RGB Values and Fractions
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.rgbData.Fraction">
+            <summary>
+            JSon Data for RGB Fractions
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.rgbData.r">
+            <summary>
+            Json Data for Red Value
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.rgbData.g">
+            <summary>
+            Json Data for Green Value
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.rgbData.b">
+            <summary>
+            Json Data for Blue Value
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.rgbData.value">
+            <summary>
+            Json Data for Value String
+            </summary>
+        </member>
+        <member name="T:ColorApiLib.rgbFraction">
+            <summary>
+            Json Data for Red Fractions
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.rgbFraction.r">
+            <summary>
+            Json Data for Red Fraction
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.rgbFraction.g">
+            <summary>
+            Json Data for Green Fraction
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.rgbFraction.b">
+            <summary>
+            Json Data for Blue Fraction
+            </summary>
+        </member>
+        <member name="T:ColorApiLib.hslData">
+            <summary>
+            JSon Data for HSL Values and Fractions
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.hslData.fraction">
+            <summary>
+            JSon Data for HSL Fractions
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.hslData.h">
+            <summary>
+            Json Data for Hue Value
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.hslData.s">
+            <summary>
+            Json Data for Saturation Value
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.hslData.l">
+            <summary>
+            Json Data for Lightness Value
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.hslData.value">
+            <summary>
+            Json Data for Value String
+            </summary>
+        </member>
+        <member name="T:ColorApiLib.hslFraction">
+            <summary>
+            JSon Data for HSL Fractions
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.hslFraction.h">
+            <summary>
+            Json Data for Hue Fraction
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.hslFraction.s">
+            <summary>
+            Json Data for Saturation Fraction
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.hslFraction.l">
+            <summary>
+            Json Data for Lightness Fraction
+            </summary>
+        </member>
+        <member name="T:ColorApiLib.hsvData">
+            <summary>
+            JSon Data for HSV Values and Fractions
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.hsvData.fraction">
+            <summary>
+            JSon Data for HSV Fractions
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.hsvData.h">
+            <summary>
+            Json Data for Hue Value
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.hsvData.s">
+            <summary>
+            Json Data for Saturation Value
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.hsvData.v">
+            <summary>
+            Json Data for Value Value
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.hsvData.value">
+            <summary>
+            Json Data for HSV Value String
+            </summary>
+        </member>
+        <member name="T:ColorApiLib.hsvFraction">
+            <summary>
+            JSon Data for HSV Fractions
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.hsvFraction.h">
+            <summary>
+            Json Data for Hue Fraction
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.hsvFraction.s">
+            <summary>
+            Json Data for Saturation Fraction
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.hsvFraction.v">
+            <summary>
+            Json Data for Value Fraction
+            </summary>
+        </member>
+        <member name="T:ColorApiLib.cmykData">
+            <summary>
+            JSon Data for CMYK Values and Fractions
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.cmykData.fraction">
+            <summary>
+            JSon Data for CMYK Fractions
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.cmykData.c">
+            <summary>
+            JSon Data for Cyan Value
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.cmykData.m">
+            <summary>
+            JSon Data for Magenta Value
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.cmykData.y">
+            <summary>
+            JSon Data for Yellow Value
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.cmykData.k">
+            <summary>
+            JSon Data for Key (Black) Value
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.cmykData.value">
+            <summary>
+            Json Data for CMYK Value String
+            </summary>
+        </member>
+        <member name="T:ColorApiLib.cmykFraction">
+            <summary>
+            JSon Data for CMYK Fractions
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.cmykFraction.c">
+            <summary>
+            JSon Data for Cyan Fraction
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.cmykFraction.m">
+            <summary>
+            JSon Data for Magenta Fraction
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.cmykFraction.y">
+            <summary>
+            JSon Data for Yellow Fraction
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.cmykFraction.k">
+            <summary>
+            JSon Data for Key (Black) Fraction
+            </summary>
+        </member>
+        <member name="T:ColorApiLib.xyzData">
+            <summary>
+            JSon Data for XYZ Values and Fractions
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.xyzData.fraction">
+            <summary>
+            JSon Data for XYZ Fractions
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.xyzData.x">
+            <summary>
+            JSon Data for X Value
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.xyzData.y">
+            <summary>
+            JSon Data for Y Value
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.xyzData.z">
+            <summary>
+            JSon Data for Z Value
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.xyzData.value">
+            <summary>
+            Json Data for XYZ Value String
+            </summary>
+        </member>
+        <member name="T:ColorApiLib.xyzFraction">
+            <summary>
+            JSon Data for XYZ Fractions
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.xyzFraction.x">
+            <summary>
+            JSon Data for X Fraction
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.xyzFraction.y">
+            <summary>
+            JSon Data for Y Fraction
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.xyzFraction.z">
+            <summary>
+            JSon Data for Z Fraction
+            </summary>
+        </member>
+        <member name="T:ColorApiLib.hexData">
+            <summary>
+            Json Data for Hex Strings
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.hexData.value">
+            <summary>
+            Json Data for Hex Value String
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.hexData.clean">
+            <summary>
+            Json Data for Hex Clean Value String
+            </summary>
+        </member>
+        <member name="T:ColorApiLib.nameData">
+            <summary>
+            JSon Data for Color Name information
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.nameData.value">
+            <summary>
+            Json Data for Name Value String
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.nameData.closestNamedHex">
+            <summary>
+            Json Data for the Closest Color Hex Value String
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.nameData.exactNameMatch">
+            <summary>
+            Json Data for Exact Match Boolean
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.nameData.distance">
+            <summary>
+            Json Data for Distance Integer 
+            </summary>
+        </member>
+        <member name="T:ColorApiLib.imageData">
+            <summary>
+            Json Data for Image URLs
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.imageData.Bare">
+            <summary>
+            Json Data for Bare Image URL
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.imageData.Named">
+            <summary>
+            Json Data for Named Image URL
+            </summary>
+        </member>
+        <member name="T:ColorApiLib.contrastData">
+            <summary>
+            Json Data for Contrast
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.contrastData.value">
+            <summary>
+            Json Data for Contrast Hex Value String
+            </summary>
+        </member>
+        <member name="T:ColorApiLib.linksData">
+            <summary>
+            Json Data for Links
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.linksData.Self">
+            <summary>
+            Json Data for Direct Link to Color
+            </summary>
+        </member>
+        <member name="T:ColorApiLib.selfData">
+            <summary>
+            Json Data for Self Data
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.selfData.href">
+            <summary>
+            Json Data for Direct Link to Color
+            </summary>
+        </member>
+        <member name="T:ColorApiLib.ColorfulRestProperty">
+            <summary>
+            An object that represents a color from TheColorAPI.
+            </summary>
+        </member>
+        <member name="T:ColorApiLib.ColorfulRestProperty.hexvalue">
+            <summary>
+            The Hex Data for the Color Object
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulRestProperty.hexvalue.Value">
+            <summary>
+            Hexidecimal (HTML) value for the color. (Includes #)
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulRestProperty.hexvalue.CleanValue">
+            <summary>
+            Clean Hexidecimal (HTML) value for the color.
+            </summary>
+        </member>
+        <member name="M:ColorApiLib.ColorfulRestProperty.hexvalue.#ctor(System.String,System.String)">
+            <summary>
+            Creates the Hex data from user provided values.
+            </summary>
+            <param name="value">The hexidecimal value for a color (Example: #01A1B1)</param>
+            <param name="cvalue">The clean hexidecimal value for a color (Example: 01A1B1)</param>
+        </member>
+        <member name="M:ColorApiLib.ColorfulRestProperty.hexvalue.#ctor(System.Object)">
+            <summary>
+            Creates the Hex data from ColorfulJsonParser hex data.
+            </summary>
+            <param name="jsonData">ColorfulJsonParser.hexData object</param>
+        </member>
+        <member name="T:ColorApiLib.ColorfulRestProperty.rgb">
+            <summary>
+            The RGB (Red, Green Blue) Color Space Data for the Color Object
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulRestProperty.rgb.Values">
+            <summary>
+            The collection of RGB values in ushort. (Base: ColorfulGeneric.RGB(ushort))
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulRestProperty.rgb.Fraction">
+            <summary>
+            The collection of RGB fractions in decimal. (Base: ColorfulGeneric.RGB(decimal))
+            </summary>
+        </member>
+        <member name="M:ColorApiLib.ColorfulRestProperty.rgb.ToString">
+            <summary>
+            Gets a string representing the RGB values.
+            </summary>
+            <returns>Returns a string representing the RGB values.</returns>
+        </member>
+        <member name="M:ColorApiLib.ColorfulRestProperty.rgb.ToApiUrl">
+            <summary>
+            Gets the API URL to query TheColorApi for this color using RGB method.
+            </summary>
+            <returns>The API Url.</returns>
+        </member>
+        <member name="M:ColorApiLib.ColorfulRestProperty.rgb.#ctor(System.Object)">
+            <summary>
+            Creates RGB Data from ColorfulJsonParser RGB data
+            </summary>
+            <param name="jsonData">ColorfulJsonParser.rgbData object</param>
+        </member>
+        <member name="M:ColorApiLib.ColorfulRestProperty.rgb.#ctor(System.UInt16[],System.Decimal[])">
+            <summary>
+            Creates RBG Data from user provided arrays of ushorts and decimals.
+            </summary>
+            <param name="values">An array of ushorts representing RGB values ([0]:Red, [1]:Green, [2]:Blue)</param>
+            <param name="fraction">An array of decimals representing RGB fractions ([0]:Red, [1]:Green, [2]:Blue)</param>
+        </member>
+        <member name="T:ColorApiLib.ColorfulRestProperty.hsl">
+            <summary>
+            The HSL (Hue, Saturation, Lightness) Color Space Data for the Color Object
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulRestProperty.hsl.Values">
+            <summary>
+            The collection of HSL values in ushort. (Base: ColorfulGeneric.HSL(ushort))
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulRestProperty.hsl.Fraction">
+            <summary>
+            The collection of HSL fractions in decimal. (Base: ColorfulGeneric.HSL(decimal))
+            </summary>
+        </member>
+        <member name="M:ColorApiLib.ColorfulRestProperty.hsl.ToString">
+            <summary>
+            Gets a string representing the HSL values.
+            </summary>
+            <returns>Returns a string representing the HSL values.</returns>
+        </member>
+        <member name="M:ColorApiLib.ColorfulRestProperty.hsl.ToApiUrl">
+            <summary>
+            Gets the API URL to query TheColorApi for this color using HSL method.
+            </summary>
+            <returns>The API Url.</returns>
+        </member>
+        <member name="M:ColorApiLib.ColorfulRestProperty.hsl.#ctor(System.Object)">
+            <summary>
+            Creates HSL Data from ColorfulJsonParser HSL data
+            </summary>
+            <param name="jsonData">ColorfulJsonParser.hslData object</param>
+        </member>
+        <member name="M:ColorApiLib.ColorfulRestProperty.hsl.#ctor(System.UInt16[],System.Decimal[])">
+            <summary>
+            Creates HSL Data from user provided arrays of ushorts and decimals.
+            </summary>
+            <param name="values">An array of ushorts representing HSL values ([0]:Hue, [1]:Saturation, [2]:Lightness)</param>
+            <param name="fraction">An array of decimals representing HSL fractions ([0]:Hue, [1]:Saturation, [2]:Lightness)</param>
+        </member>
+        <member name="T:ColorApiLib.ColorfulRestProperty.hsv">
+            <summary>
+            The HSV (Hue, Saturation, Value) Color Space Data for the Color Object
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulRestProperty.hsv.Values">
+            <summary>
+            The collection of HSV values in ushort. (Base: ColorfulGeneric.HSV(ushort))
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulRestProperty.hsv.Fraction">
+            <summary>
+            The collection of HSV fractions in decimal. (Base: ColorfulGeneric.HSV(decimal))
+            </summary>
+        </member>
+        <member name="M:ColorApiLib.ColorfulRestProperty.hsv.ToString">
+            <summary>
+            Gets a string representing the HSV values.
+            </summary>
+            <returns>Returns a string representing the HSV values.</returns>
+        </member>
+        <member name="M:ColorApiLib.ColorfulRestProperty.hsv.ToApiUrl">
+            <summary>
+            Gets the API URL to query TheColorApi for this color using HSV method.  This method is not currently supported by the API.
+            </summary>
+            <returns>The API Url.</returns>
+        </member>
+        <member name="M:ColorApiLib.ColorfulRestProperty.hsv.#ctor(System.Object)">
+            <summary>
+            Creates HSV Data from ColorfulJsonParser HSV data
+            </summary>
+            <param name="jsonData">ColorfulJsonParser.hsvData object</param>
+        </member>
+        <member name="M:ColorApiLib.ColorfulRestProperty.hsv.#ctor(System.UInt16[],System.Decimal[])">
+            <summary>
+            Creates HSV Data from user provided arrays of ushorts and decimals.
+            </summary>
+            <param name="values">An array of ushorts representing HSV values ([0]:Hue, [1]:Saturation, [2]:Value)</param>
+            <param name="fraction">An array of decimals representing HSV fractions ([0]:Hue, [1]:Saturation, [2]:Value)</param>
+        </member>
+        <member name="T:ColorApiLib.ColorfulRestProperty.cmyk">
+            <summary>
+            The CMYK (Cyan, Magenta, Yellow, Key (Black)) Color Space Data for the Color Object
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulRestProperty.cmyk.Values">
+            <summary>
+            The collection of CMYK values in ushort. (Base: ColorfulGeneric.CMYK(ushort))
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulRestProperty.cmyk.Fraction">
+            <summary>
+            The collection of CMYK fractions in decimal. (Base: ColorfulGeneric.CMYK(decimal))
+            </summary>
+        </member>
+        <member name="M:ColorApiLib.ColorfulRestProperty.cmyk.ToString">
+            <summary>
+            Gets a string representing the CMYK values.
+            </summary>
+            <returns>Returns a string representing the CMYK values.</returns>
+        </member>
+        <member name="M:ColorApiLib.ColorfulRestProperty.cmyk.ToApiUrl">
+            <summary>
+            Gets the API URL to query TheColorApi for this color using CMYK method.
+            </summary>
+            <returns>The API Url.</returns>
+        </member>
+        <member name="M:ColorApiLib.ColorfulRestProperty.cmyk.#ctor(System.Object)">
+            <summary>
+            Creates CMYK Data from ColorfulJsonParser CMYK data
+            </summary>
+            <param name="jsonData">ColorfulJsonParser.cmykData object</param>
+        </member>
+        <member name="M:ColorApiLib.ColorfulRestProperty.cmyk.#ctor(System.UInt16[],System.Decimal[])">
+            <summary>
+            Creates CMYK Data from user provided arrays of ushorts and decimals.
+            </summary>
+            <param name="values">An array of ushorts representing CMYK values ([0]:Cyan, [1]:Magenta, [2]:Yellow [3]:Key)</param>
+            <param name="fraction">An array of decimals representing CMYK fractions ([0]:Cyan, [1]:Magenta, [2]:Yellow [3]:Key)</param>
+        </member>
+        <member name="T:ColorApiLib.ColorfulRestProperty.xyz">
+            <summary>
+            The XYZ (CIE 1931) Color Space Data for the Color Object
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulRestProperty.xyz.Values">
+            <summary>
+            The collection of XYZ values in ushort. (Base: ColorfulGeneric.XYZ(ushort))
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulRestProperty.xyz.Fraction">
+            <summary>
+            The collection of XYZ fractions in decimal. (Base: ColorfulGeneric.XYZ(decimal))
+            </summary>
+        </member>
+        <member name="M:ColorApiLib.ColorfulRestProperty.xyz.ToString">
+            <summary>
+            Gets a string representing the XYZ values.
+            </summary>
+            <returns>Returns a string representing the XYZ values.</returns>
+        </member>
+        <member name="M:ColorApiLib.ColorfulRestProperty.xyz.ToApiUrl">
+            <summary>
+            Gets the API URL to query TheColorApi for this color using XYZ method.  This method is not currently supported by the API.
+            </summary>
+            <returns>The API Url.</returns>
+        </member>
+        <member name="M:ColorApiLib.ColorfulRestProperty.xyz.#ctor(System.Object)">
+            <summary>
+            Creates XYZ Data from ColorfulJsonParser XYZ data
+            </summary>
+            <param name="jsonData">ColorfulJsonParser.xyzData object</param>
+        </member>
+        <member name="M:ColorApiLib.ColorfulRestProperty.xyz.#ctor(System.UInt16[],System.Decimal[])">
+            <summary>
+            Creates XYZ Data from user provided arrays of ushorts and decimals.
+            </summary>
+            <param name="values">An array of ushorts representing XYZ values ([0]:X, [1]:Y, [2]:Z)</param>
+            <param name="fraction">An array of decimals representing XYZ fractions ([0]:X, [1]:Y, [2]:Z)</param>
+        </member>
+        <member name="T:ColorApiLib.ColorfulRestProperty.name">
+            <summary>
+            The Name data for the Color Object
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulRestProperty.name.Value">
+            <summary>
+            A string representing the name of the color.
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulRestProperty.name.ClosestNamedHex">
+            <summary>
+            A string representing the closest color in hexidecimal.
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulRestProperty.name.ExactMatchName">
+            <summary>
+            A boolean representing if this color exactly matches the closet named color.
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulRestProperty.name.Distance">
+            <summary>
+            The distance to the Closest named color.
+            </summary>
+        </member>
+        <member name="M:ColorApiLib.ColorfulRestProperty.name.#ctor(System.Object)">
+            <summary>
+            Creates Name Data from ColorfulJsonParser Name data
+            </summary>
+            <param name="jsonData">ColorfulJsonParser.nameData object</param>
+        </member>
+        <member name="M:ColorApiLib.ColorfulRestProperty.name.#ctor(System.String,System.String,System.Boolean,System.Int32)">
+            <summary>
+            reates Name Data from user provided parameters.
+            </summary>
+            <param name="value">The name of the color</param>
+            <param name="closestHex">The closest color in Hexidecimal</param>
+            <param name="exactMatch">Does this color match its closest match</param>
+            <param name="dist">Distance to the nearest color</param>
+        </member>
+        <member name="T:ColorApiLib.ColorfulRestProperty.image">
+            <summary>
+            The Image Data for the Color Object
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulRestProperty.image.Bare">
+            <summary>
+            The URL to the image without text.
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulRestProperty.image.Named">
+            <summary>
+            The URL to the image with text.
+            </summary>
+        </member>
+        <member name="M:ColorApiLib.ColorfulRestProperty.image.#ctor(System.Object)">
+            <summary>
+            Creates Image Data from ColorfulJsonParser Image data
+            </summary>
+            <param Image="jsonData">ColorfulJsonParser.ImageData object</param>
+        </member>
+        <member name="M:ColorApiLib.ColorfulRestProperty.image.#ctor(System.String,System.String)">
+            <summary>
+            Creates Image Data from user provided strings.
+            </summary>
+            <param name="bare">The URL to the image without text.</param>
+            <param name="named">The URL to the image with text.</param>
+        </member>
+        <member name="F:ColorApiLib.ColorfulRestProperty.HexValue">
+            <summary>
+            The Hex Data for the current Color Object
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulRestProperty.RGB">
+            <summary>
+            The RGB (Red, Green Blue) Color Space Data for the current Color Object
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulRestProperty.HSL">
+            <summary>
+            The HSL (Hue, Saturation, Lightness) Color Space Data for the current Color Object
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulRestProperty.HSV">
+            <summary>
+            The HSV (Hue, Saturation, Value) Color Space Data for the current Color Object
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulRestProperty.CMYK">
+            <summary>
+            The CMYK (Cyan, Magenta, Yellow, Key (Black)) Color Space Data for the current Color Object
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulRestProperty.XYZ">
+            <summary>
+            The XYZ (CIE 1931) Color Space Data for the current Color Object
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulRestProperty.Name">
+            <summary>
+            The Name data for the current Color Object
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulRestProperty.Image">
+            <summary>
+            The Image Data for the current Color Object
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulRestProperty.Contrast">
+            <summary>
+            The Contrast Data for the current Color Object
+            </summary>
+        </member>
+        <member name="M:ColorApiLib.ColorfulRestProperty.#ctor">
+            <summary>
+            Initializes an empty ColorfulRestProperty object.
+            </summary>
+        </member>
+        <member name="M:ColorApiLib.ColorfulRestProperty.#ctor(System.Object)">
+            <summary>
+            Initializes a ColorfulRestProperty object from ColorfulJsonParser object.
+            </summary>
+            <param name="json">(ColorfulJsonParser)object from API call.</param>
+        </member>
+        <member name="M:ColorApiLib.ColorfulRestProperty.ToString">
+            <summary>
+            Gets the name of the current color object
+            </summary>
+            <returns>Returns the name of the color.</returns>
+        </member>
+        <member name="M:ColorApiLib.ColorfulRestProperty.ToString(System.Boolean)">
+            <summary>
+            Gets data relating to hte color object.
+            </summary>
+            <param name="allData">Bool representing if all data is needed.</param>
+            <returns>allData = True - Gets the RGB, HSL, HSV, XYZ and CMYK colorspace data for the object in string form
+            		 allData = False - Gets the name of the color
+            </returns>
+        </member>
+        <member name="T:ColorApiLib.ColorfulSchemeJsonParser">
+            <summary>
+            The data for the scheme returned.
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.ColorfulSchemeJsonParser.Mode">
+            <summary>
+            Defines the Mode of the scheme returned.  For example: "analogic"
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.ColorfulSchemeJsonParser.Count">
+            <summary>
+            Defines the total number of colors returned.
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.ColorfulSchemeJsonParser.Colors">
+            <summary>
+            Defines the colors returned for the scheme.  This comes in the form of multiple ColorfulJsonParser objects.
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.ColorfulSchemeJsonParser.Seed">
+            <summary>
+            Gets the seed color for the scheme.  This is the same as a ColorfulJsonParser object.
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.ColorfulSchemeJsonParser.images">
+            <summary>
+            Gets the image details for the scheme.
+            </summary>
+        </member>
+        <member name="T:ColorApiLib.schemeImageData">
+            <summary>
+            Composes the image data.
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.schemeImageData.Bare">
+            <summary>
+            Contains the data for the images without names.
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.schemeImageData.Named">
+            <summary>
+            Contains the data for the images with names.
+            </summary>
+        </member>
+        <member name="T:ColorApiLib.schemeLinks">
+            <summary>
+            Gets the link details for the scheme
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.schemeLinks.Self">
+            <summary>
+            Gets the self referencing link for the scheme. (The link that was queried through the API)
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.schemeLinks.Schemes">
+            <summary>
+            Gets a collection of all the available schemes for a given color.
+            </summary>
+        </member>
+        <member name="T:ColorApiLib.schemeLinkSchemes">
+            <summary>
+            Defines the various scheme links for the color.
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.schemeLinkSchemes.Monochrome">
+            <summary>
+            Gets the link for the Monochrome scheme.
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.schemeLinkSchemes.MonochromeDark">
+            <summary>
+            Gets the link for the Monochrome-Dark scheme.
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.schemeLinkSchemes.MonochromeLight">
+            <summary>
+            Gets the link for the Monochrome-Light scheme.
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.schemeLinkSchemes.Analogic">
+            <summary>
+            Gets the link for the Analogic scheme.
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.schemeLinkSchemes.Complement">
+            <summary>
+            Gets the link for the Complement scheme.
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.schemeLinkSchemes.AnalogicComplement">
+            <summary>
+            Gets the link for the Analogic-Complement scheme.
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.schemeLinkSchemes.Triad">
+            <summary>
+            Gets the link for the triad scheme.
+            </summary>
+        </member>
+        <member name="P:ColorApiLib.schemeLinkSchemes.Quad">
+            <summary>
+            Gets the link for the quad scheme.
+            </summary>
+        </member>
+        <member name="T:ColorApiLib.ColorfulSchemeRestProperty">
+            <summary>
+            An object that represents a color scheme from TheColorAPI.
+            </summary>
+        </member>
+        <member name="T:ColorApiLib.ColorfulSchemeRestProperty.Images">
+            <summary>
+            The links for the various images returned by the api.
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulSchemeRestProperty.Images.Bare">
+            <summary>
+            The color image without the name string appended on it.
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulSchemeRestProperty.Images.Named">
+            <summary>
+            The color image with the name string appended on it.
+            </summary>
+        </member>
+        <member name="M:ColorApiLib.ColorfulSchemeRestProperty.Images.#ctor(System.String,System.String)">
+            <summary>
+            Creates image link data from user defined strings.
+            </summary>
+            <param name="_bare">String for the bare image.</param>
+            <param name="_named">String for the named image.</param>
+        </member>
+        <member name="M:ColorApiLib.ColorfulSchemeRestProperty.Images.#ctor(System.Object)">
+            <summary>
+            Creates image link data from a ColorfulSchemeJsonParser schemeImageData object.
+            </summary>
+            <param name="jsonData">ColorfulSchemeJsonParser.schemeImageData object </param>
+        </member>
+        <member name="T:ColorApiLib.ColorfulSchemeRestProperty.links">
+            <summary>
+            The links to the other color schemes available for the Seed.
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulSchemeRestProperty.links.Monochrome">
+            <summary>
+            A scheme of colors for the Seed in a monochrome palet.
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulSchemeRestProperty.links.MonochromeDark">
+            <summary>
+            A scheme of colors for the Seed in a dark themed monochrome palet.
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulSchemeRestProperty.links.MonochromeLight">
+            <summary>
+            A scheme of colors for the Seed in a light themed monochrome palet.
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulSchemeRestProperty.links.Analogic">
+            <summary>
+            A scheme of colors for the Seed that are similar to eachother (this is the default scheme).
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulSchemeRestProperty.links.Complement">
+            <summary>
+            A scheme of colors for the Seed that complement eachother (these may or may not include the original seed).
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulSchemeRestProperty.links.AnalogicComplement">
+            <summary>
+            A scheme of colors for the Seed that complement eachother and are similar to the Seed (these may or may not include the original seed).
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulSchemeRestProperty.links.Triad">
+            <summary>
+            A scheme of colors for the Seed that ???
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulSchemeRestProperty.links.Quad">
+            <summary>
+            A scheme of colors for the Seed that ???
+            </summary>
+        </member>
+        <member name="M:ColorApiLib.ColorfulSchemeRestProperty.links.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Creates the links object from user defined strings.
+            </summary>
+            <param name="_monochrome">String for the link to the Monochrome Scheme</param>
+            <param name="_monoDark">String for the link to the Monochrome Dark Scheme</param>
+            <param name="_monoLight">String for the link to the Monochrome Light Scheme</param>
+            <param name="_analogic">String for the link to the Analogic Scheme</param>
+            <param name="_complement">String for the link to the Complement Scheme</param>
+            <param name="_anacomp">String for the link to the Analogic Complement Scheme</param>
+            <param name="_triad">String for the link to the Triad Scheme</param>
+            <param name="_quad">String for the link to the Quad Scheme</param>
+        </member>
+        <member name="M:ColorApiLib.ColorfulSchemeRestProperty.links.#ctor(System.Object)">
+            <summary>
+            Creates links object from ColorfulSchemeJsonParser.schemeLinks object.
+            </summary>
+            <param name="jsonData">ColorfulSchemeJsonParser.schemeLinks Object</param>
+        </member>
+        <member name="F:ColorApiLib.ColorfulSchemeRestProperty.Mode">
+            <summary>
+            A string representing the mode for the scheme.
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulSchemeRestProperty.Count">
+            <summary>
+            An integer representing how many colors are in the scheme
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulSchemeRestProperty.Colors">
+            <summary>
+            A list of the colors returned by the API parsed into ColorfulRestProperties.
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulSchemeRestProperty.Seed">
+            <summary>
+            The seed color used to generate the scheme parsed into a ColorfulRestProperty.
+            </summary>
+        </member>
+        <member name="F:ColorApiLib.ColorfulSchemeRestProperty.Links">
+            <summary>
+            The collection of links to the various schemes.
+            </summary>
+        </member>
+        <member name="M:ColorApiLib.ColorfulSchemeRestProperty.#ctor">
+            <summary>
+            Initializes an empty ColorfulSchemeRestProperty object.
+            </summary>
+        </member>
+        <member name="M:ColorApiLib.ColorfulSchemeRestProperty.#ctor(System.Object)">
+            <summary>
+            Initializes the ColorfulSchemeRestProperty object from a ColorfulSchemeJsonParser object.
+            </summary>
+            <param name="json">(ColorfulSchemeJsonParser)object from API call.</param>
+        </member>
+    </members>
+</doc>

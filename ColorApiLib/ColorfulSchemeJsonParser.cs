@@ -149,7 +149,7 @@ namespace ColorApiLib
 		/// Gets the link for the quad scheme.
 		/// </summary>
 		[DataMember(Name = "quad")]
-		public string quad { get; set; }
+		public string Quad { get; set; }
 	}
 
 	/*	DEBUG/TEMP CODE

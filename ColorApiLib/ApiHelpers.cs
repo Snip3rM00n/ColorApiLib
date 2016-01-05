@@ -18,6 +18,7 @@ using System.Diagnostics;
 using System.Net.Http;
 using System.Runtime.Serialization.Json;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace ColorApiLib
 {
@@ -121,6 +122,7 @@ namespace ColorApiLib
 			return await hitApiWithUrl(url, new DataContractJsonSerializer(typeof(ColorfulSchemeJsonParser)));
 		}
 
+		/*	MAY REMOVE TO PREVENT CONFLICT WITH CMYK COLORSPACE
 		/// <summary>
 		/// Gets the jSon Object for TheColorAPI data using ColorfulSchemeJsonParser.
 		/// </summary>
@@ -137,6 +139,7 @@ namespace ColorApiLib
 
 			return await hitApiWithUrl(url, new DataContractJsonSerializer(typeof(ColorfulSchemeJsonParser)));
 		}
+		*/
 
 		/// <summary>
 		/// Gets the jSon Object for TheColorAPI data using ColorfulSchemeJsonParser.
@@ -156,7 +159,7 @@ namespace ColorApiLib
 		}
 
 		/// <summary>
-		/// 
+		/// Gets the jSon Object for TheColorAPI data using ColorfulSchemeJsonParser.
 		/// </summary>
 		/// <param name="r">Value for Red</param>
 		/// <param name="g">Value for Green</param>
@@ -172,6 +175,42 @@ namespace ColorApiLib
 			url = string.Format(url, Enum.GetName(typeof(scheme), mode)); ;
 
 			return await hitApiWithUrl(url, new DataContractJsonSerializer(typeof(ColorfulSchemeJsonParser)));
+		}
+
+		/// <summary>
+		/// Gets the ColorfulSchemeRestProperty for a color.
+		/// </summary>
+		/// <param name="r">Value for Red</param>
+		/// <param name="g">Value for Green</param>
+		/// <param name="b">Value for Blue</param>
+		/// <param name="mode">The desired mode for the ColorfulSchemeRestProperty (Default: Analogic)</param>
+		/// <param name="count">The desired number of colors for the ColorfulSchemeRestProperty (Default: 5)</param>
+		/// <returns>A new ColorfulSchemeRestProperty with the provided parameters..</returns>
+		public static async Task<ColorfulSchemeRestProperty> getColorfulSchemeRestProperty(int r, int g, int b, scheme mode = scheme.Analogic, int count = 5)
+		{
+			object json = await getSchemeApiJson(r, g, b, mode, count);
+			return new ColorfulSchemeRestProperty(json);
+		}
+
+		/// <summary>
+		/// Gets the entire collection of schemes for a given color.
+		/// </summary>
+		/// <param name="r">Value for Red.</param>
+		/// <param name="g">Value for Green.</param>
+		/// <param name="b">Value for Blue.</param>
+		/// <param name="count">The desired number of colors for each ColorfulSchemeRestProperty (Default: 5)</param>
+		/// <returns></returns>
+		public static async Task<List<ColorfulSchemeRestProperty>> getAllColorfulSchemeRestProperties(int r, int g, int b, int count = 5)
+		{
+			List<ColorfulSchemeRestProperty> schemesCollection = new List<ColorfulSchemeRestProperty>();
+
+			foreach(var mode in Enum.GetValues(typeof(scheme)))
+			{
+				object json = await getColorfulSchemeRestProperty(r, g, b, (scheme)mode, count);
+				schemesCollection.Add(new ColorfulSchemeRestProperty(json));
+			}
+
+			return schemesCollection;
 		}
 
 		#endregion
@@ -206,6 +245,22 @@ namespace ColorApiLib
 		{
 			object json = await getColorApiJson(c, m, y, k);
 			return new ColorfulRestProperty(json);
+		}
+
+		/// <summary>
+		/// Gets the jSon Object for TheColorAPI data using ColorfulSchemeJsonParser.
+		/// </summary>
+		/// <param name="c">Value for Cyan</param>
+		/// <param name="m">Value for Magenta</param>
+		/// <param name="y">Value for Yellow</param>
+		/// <param name="k">Value for Key (Black)</param>
+		/// <returns>An Analogic scheme of 5 colors based on the color requested.</returns>
+		public static async Task<object> getSchemeApiJson(int c, int m, int y, int k)
+		{
+			string url = string.Format(apiSchemeUrl, cmykUrlParams);
+			url = string.Format(url, c, m, y, k);
+
+			return await hitApiWithUrl(url, new DataContractJsonSerializer(typeof(ColorfulSchemeJsonParser)));
 		}
 
 		#endregion

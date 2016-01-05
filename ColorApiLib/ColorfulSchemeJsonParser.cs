@@ -43,20 +43,26 @@ namespace ColorApiLib
 		/// Defines the colors returned for the scheme.  This comes in the form of multiple ColorfulJsonParser objects.
 		/// </summary>
 		[DataMember(Name = "colors")]
-		public List<ColorfulJsonParser> Colors { get; set; }
+		public List<ColorfulRestProperty> Colors { get; set; }
 		//public List<colors> Colors { get; set; }
 
 		/// <summary>
 		/// Gets the seed color for the scheme.  This is the same as a ColorfulJsonParser object.
 		/// </summary>
 		[DataMember(Name = "seed")]
-		public ColorfulJsonParser Seed { get; set; }
+		public ColorfulRestProperty Seed { get; set; }
 
 		/// <summary>
 		/// Gets the image details for the scheme.
 		/// </summary>
 		[DataMember(Name = "images")]
-		public schemeImageData images { get; set; }
+		public schemeImageData Images { get; set; }
+
+		/// <summary>
+		/// Gets the links data for the scheme.
+		/// </summary>
+		[DataMember(Name = "links")]
+		public linksData Links { get; set; }
 	}
 
 	/// <summary>

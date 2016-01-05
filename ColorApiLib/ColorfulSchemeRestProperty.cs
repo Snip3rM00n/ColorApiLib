@@ -41,7 +41,7 @@ namespace ColorApiLib
 		/// <summary>
 		/// The links for the various images returned by the api.
 		/// </summary>
-		public struct Images
+		public struct images
 		{
 			/// <summary>
 			/// The color image without the name string appended on it.
@@ -57,7 +57,7 @@ namespace ColorApiLib
 			/// </summary>
 			/// <param name="_bare">String for the bare image.</param>
 			/// <param name="_named">String for the named image.</param>
-			public Images(string _bare, string _named)
+			public images(string _bare, string _named)
 			{
 				Bare = _bare;
 				Named = _named;
@@ -67,7 +67,7 @@ namespace ColorApiLib
 			/// Creates image link data from a ColorfulSchemeJsonParser schemeImageData object.
 			/// </summary>
 			/// <param name="jsonData">ColorfulSchemeJsonParser.schemeImageData object </param>
-			public Images(object jsonData)
+			public images(object jsonData)
 			{
 				var imageData = (schemeImageData)jsonData;
 				Bare = imageData.Bare;
@@ -143,7 +143,7 @@ namespace ColorApiLib
 			/// <param name="_anacomp">String for the link to the Analogic Complement Scheme</param>
 			/// <param name="_triad">String for the link to the Triad Scheme</param>
 			/// <param name="_quad">String for the link to the Quad Scheme</param>
-			public links (string _self, string _monochrome, string _monoDark, string _monoLight, string _analogic, string _complement, string _anacomp, string _triad, string _quad)
+			public links(string _self, string _monochrome, string _monoDark, string _monoLight, string _analogic, string _complement, string _anacomp, string _triad, string _quad)
 			{
 				Self = _self;
 				Schemes.Monochrome = _monochrome;
@@ -203,6 +203,11 @@ namespace ColorApiLib
 		/// </summary>
 		public links Links;
 
+		/// <summary>
+		/// The collection of image links for the current scheme.
+		/// </summary>
+		public images Images;
+
 		#endregion
 
 		#region Instantiate ColorfulSchemeRestProperty
@@ -222,6 +227,13 @@ namespace ColorApiLib
 		public ColorfulSchemeRestProperty(object json)
 		{
 			var schemeData = (ColorfulSchemeJsonParser)json;
+
+			Mode = schemeData.Mode;
+			Count = schemeData.Count;
+			Colors = schemeData.Colors;
+			Seed = schemeData.Seed;
+			Links = new links(schemeData.Links);
+			Images = new images(schemeData.Images);
 		}
 
 		private void initEmpty()
